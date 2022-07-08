@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Button } from "react-bootstrap";
 
 
-const AddNewLawyer = () => {
+const AddNewLawyerForm = (props) => {
 
   return (
     <>
@@ -35,11 +35,11 @@ const AddNewLawyer = () => {
             placeholder="Enter your total case capacity" required
           />
         </Form.Group>
-        <Button type="submit">Save changes</Button>
-        <Button type="button">Close</Button>
+        <Button type="submit" >Save changes</Button>
+        <Button type="button" onClick={props.handleClose}>Close</Button>
       </Form>
     </>
   );
 }
 
-export default AddNewLawyer;
+export default AddNewLawyerForm;
