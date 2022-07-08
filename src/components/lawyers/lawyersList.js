@@ -1,43 +1,22 @@
-import React, {useState, useEffect} from 'react';
-import {Row, Col}  from "react-bootstrap";
-import LawyerItem from "./lawyerItem";
+import React, {useState} from 'react';
+import classes from './lawyerForm.module.css';
+import { Button } from 'react-bootstrap';
+import LawyerModal from '../Modals/lawyerModal';
+import LawyerRow from './lawyerRow';
 
-function LawyersList() {
+function LawyersList(props) {
 
-    const[lawyerData, fetchLawyerData] = useState([])
 
-    const getData = () => {
-        fetch('https://62c752702b03e73a58e37b4a.mockapi.io/api/v1/lawyers')
-        .then((res) => res.json())
-        .then((res) => {
-            console.log(res)
-            fetchLawyerData(res)
-        })
-    }
+    const [show, setShow] = useState(false);
 
-    useEffect(() => {
-        getData()
-    }, [])
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     return (
         <>
-            <Row xs={1} md={3} className="g-4">
-                {lawyerData.map ( (lawyer) => (
-                   <Col key={lawyer.id}>
-                    <LawyerItem
-                      key={lawyer.id} 
-                      id={lawyer.id} 
-                      fullName ={lawyer.fullName}
-                      hourlyRate ={lawyer.houryRate}
-                      speciality = {lawyer.speciality}
-                      totalCapacity = {lawyer.totalCapacity}
-                      totalCaseTaken = {lawyer.totalCaseTaken}
-                      image={lawyer.avatar} 
-                      />
-                   </Col> 
-                ))}
-
-            </Row>
+            <LawyerRow />
+            <Button className={classes.lawyerForm} onClick={handleShow}>Add new lawyer </Button>
+            <LawyerModal show={show} handleClose={handleClose} />
         </>
     )
 }
