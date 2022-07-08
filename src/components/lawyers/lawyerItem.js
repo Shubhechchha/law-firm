@@ -6,10 +6,13 @@ const LawyerItem = (props) => {
     return (
         <>
             <Card>
-                <Card.Img variant="top" src={props.image} alt={props.name}/>
+                <Card.Img variant="top" src={props.image} alt={props.fullName}/>
                 <Card.Body>
-                    <Card.Title>{props.name}</Card.Title>
-                    <Card.Text>{props.description}</Card.Text>
+                    <Card.Title>{props.fullName}</Card.Title>
+                    <Card.Text>{props.hourlyRate}</Card.Text>
+                    <Card.Text>{props.speciality}</Card.Text>
+                    <Card.Text>{props.totalCaseCapacity}</Card.Text>
+                    <Card.Text>{props.totalCaseTaken}</Card.Text>
                     <Button
                         variant="primary"
                         className ={classes.custombtn}>

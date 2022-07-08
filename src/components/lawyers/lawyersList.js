@@ -1,68 +1,23 @@
-import LawyerItem from "./lawyerItem";
+import React, {useState, useEffect} from 'react';
 import {Row, Col}  from "react-bootstrap";
-
+import LawyerItem from "./lawyerItem";
 
 function LawyersList() {
 
-    let lawyerData = [
-        {
-            id: 'c1',
-            name : 'Alexa Green',
-            image: "/images/AlexaGreen.jpg",
-            description: 'This is ABC party.'
-        },
-        
-        {
-            id:'c2',
-            name : 'Carls Smith',
-            image: '/images/CarlSmith.jpg',
-            description : 'This is XYZ party.'
-        },
-        
-        {
-            id:'c3',
-            name : 'Claire Buffay',
-            image: '/images/ClaireBuffay.jpg',
-            description : 'This is EFG party.'
-        },
-        
-        {
-            id:'c4',
-            name : 'Hachiko Yang',
-            image: '/images/HachikoYang.jpg',
-            description : 'This is BGC party.'
-        },
-        
-        {
-            id:'c5',
-            name : 'Harry Johnson',
-            image: '/images/HarryJohnson.jpg',
-            description : 'This is HJK party.'
-        },
-        
-        {
-            id:'c6',
-            name : 'Johny Griffith',
-            image: '/images/JohnyGriffith.jpg',
-            description : 'This is LMN party.'
-        },
-        
-        {
-            id:'c7',
-            name : 'Sarah Jolie',
-            image: '/images/SarahJolie.jpg',
-            description : 'This is OPQ party.'
-        },
-        
-        {
-            id:'c8',
-            name : 'Tamara Geller',
-            image: '/images/TamaraGeller.jpg',
-            description : 'This is CVB party.'
-        }
-        
-        ];
+    const[lawyerData, fetchLawyerData] = useState([])
 
+    const getData = () => {
+        fetch('https://62c752702b03e73a58e37b4a.mockapi.io/api/v1/lawyers')
+        .then((res) => res.json())
+        .then((res) => {
+            console.log(res)
+            fetchLawyerData(res)
+        })
+    }
+
+    useEffect(() => {
+        getData()
+    }, [])
 
     return (
         <>
@@ -72,9 +27,12 @@ function LawyersList() {
                     <LawyerItem
                       key={lawyer.id} 
                       id={lawyer.id} 
-                      image={lawyer.image} 
-                      name ={lawyer.name}
-                      description = {lawyer.description}
+                      fullName ={lawyer.fullName}
+                      hourlyRate ={lawyer.houryRate}
+                      speciality = {lawyer.speciality}
+                      totalCapacity = {lawyer.totalCapacity}
+                      totalCaseTaken = {lawyer.totalCaseTaken}
+                      image={lawyer.avatar} 
                       />
                    </Col> 
                 ))}
