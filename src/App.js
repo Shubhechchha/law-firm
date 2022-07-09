@@ -10,11 +10,10 @@ function App(props) {
   return (
     <> 
      <Layout>
-    
-    <Routes>
-      <Route path = "/" element = {<LawyersList/>} /> 
-    </Routes>
-    </Layout>
+        <Routes>
+           <Route path = "/" element = {<LawyersList />} /> 
+        </Routes>
+      </Layout>
   </>
   );
 }

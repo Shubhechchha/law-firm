@@ -1,8 +1,17 @@
 import {Card, Button} from "react-bootstrap";
 import classes from "./lawyerItem.module.css"
+import ClientModal from '../Modals/clientModal';
+import { useState } from "react";
+
 
 
 const LawyerItem = (props) => {
+
+    const[show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return (
         <>
             <Card>
@@ -15,9 +24,11 @@ const LawyerItem = (props) => {
                     <Card.Text>{props.totalCaseTaken}</Card.Text>
                     <Button
                         variant="primary"
-                        className ={classes.custombtn}>
-                        VOTE
+                        className ={classes.custombtn}
+                        onClick={handleShow}>
+                        BOOK
                     </Button>
+                    <ClientModal show={show} handleClose={handleClose} lawyerID={props.id} />
                 </Card.Body>
                 
             </Card>

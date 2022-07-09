@@ -1,19 +1,19 @@
 import { Modal}  from "react-bootstrap";
-import AddNewLawyerForm from "../lawyers/addNewLawyer";
+import ClientCaseRegistration from "../clients/clientCaseRegistration";
 
-function LawyerModal(props) {
+function ClientModal(props) {
     return (
         <>
             <Modal show={props.show} onHide={props.handleClose}>
                     <Modal.Header closeButton>
-                    <Modal.Title>Add new lawyer</Modal.Title>
+                    <Modal.Title>Register a client</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <AddNewLawyerForm handleClose={props.handleClose}/> 
+                        <ClientCaseRegistration lawyerID={props.lawyerID} handleClose={props.handleClose}/> 
                     </Modal.Body>
             </Modal>
         </>
     )
 }
 
-export default LawyerModal;
+export default ClientModal;

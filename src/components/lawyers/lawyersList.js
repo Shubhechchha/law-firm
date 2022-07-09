@@ -15,9 +15,17 @@ function LawyersList(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const LAWYER_CREATE_URL_RESTDB = "https://lawyers-bf0c.restdb.io/rest/lawyers";
 
     const getData = () => {
-        fetch('https://62c752702b03e73a58e37b4a.mockapi.io/api/v1/lawyers')
+        fetch(LAWYER_CREATE_URL_RESTDB, {
+            mode: 'cors',
+            headers: {
+                "content-type": "application/json",
+                "x-apikey": "62c9f84a03ab3e0c7b0cf1bd",
+                "cache-control": "no-cache"
+              },
+        })
         .then((res) => res.json())
         .then((res) => {
             fetchLawyerData(res)
