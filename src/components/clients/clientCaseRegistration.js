@@ -43,17 +43,17 @@ function ClientCaseRegistration(props) {
           body: JSON.stringify({
             totalCasesTaken: props.totalCasesTaken + 1,
           }),
-        }).then((res) => res.json())
-          .then(data => {
+        })
+          .then((res) => res.json())
+          .then((data) => {
             props.handleClose();
             props.setLoading(true);
             props.getLatestLawyerData();
-          })
-        }).catch((error) => {
-          console.error("Error:", error);
-        });
-      
-      
+          });
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   return (
