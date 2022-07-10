@@ -30,7 +30,10 @@ function LawyersList(props) {
         .then((res) => {
             fetchLawyerData(res)
             setLoading(false);
-        })
+        }).catch((error) => {
+            console.error('Error:', error);
+          });
+         
     }
     useEffect(() => {
         getData()
@@ -41,7 +44,7 @@ function LawyersList(props) {
     } else {
         return (
             <>
-                <LawyerRow lawyerData={lawyerData} />
+                <LawyerRow lawyerData={lawyerData} getLatestLawyerData={getData} setLoading={setLoading}/>
                 <Button className={classes.lawyerForm} onClick={handleShow}>Add new lawyer</Button>
                 <LawyerModal show={show} handleClose={handleClose} getLatestLawyerData={getData} setLoading={setLoading}/>
             </>
