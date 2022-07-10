@@ -28,16 +28,18 @@ const AddNewLawyerForm = (props) => {
         fullName: fullName,
         hourlyRate: hourlyRate,
         speciality: speciality,
-        totalCaseCapacity: totalCaseCapacity,
-        
+        totalCaseCapacity: totalCaseCapacity,  
       })
     }).then(response => response.json())
     .then(data => {
       console.log('Success:', data);
+      props.handleClose();
+      props.getLatestLawyerData();
     })
     .catch((error) => {
       console.error('Error:', error);
     });
+   
    };
 
   

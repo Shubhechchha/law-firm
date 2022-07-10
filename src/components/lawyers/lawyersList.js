@@ -32,7 +32,6 @@ function LawyersList(props) {
             setLoading(false);
         })
     }
-
     useEffect(() => {
         getData()
     }, [])
@@ -44,7 +43,7 @@ function LawyersList(props) {
             <>
                 <LawyerRow lawyerData={lawyerData} />
                 <Button className={classes.lawyerForm} onClick={handleShow}>Add new lawyer</Button>
-                <LawyerModal show={show} handleClose={handleClose} />
+                <LawyerModal show={show} handleClose={handleClose} getLatestLawyerData={getData} />
             </>
         )
     }
