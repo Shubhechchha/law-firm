@@ -30,7 +30,6 @@ const LawyerItem = (props) => {
           }).catch((error) => {
             console.error('Error:', error);
           });
-         
     }
 
     return (
@@ -49,7 +48,14 @@ const LawyerItem = (props) => {
                         onClick={handleShow}>
                         BOOK
                     </Button>
-                    <ClientModal show={show} handleClose={handleClose} lawyerID={props.id} />
+                    <ClientModal 
+                        show={show} 
+                        handleClose={handleClose} 
+                        lawyerID={props.id} 
+                        totalCasesTaken={props.totalCasesTaken} 
+                        setLoading={props.setLoading} 
+                        getLatestLawyerData={props.getLatestLawyerData}
+                    />
                 </Card.Body>
                 
             </Card>

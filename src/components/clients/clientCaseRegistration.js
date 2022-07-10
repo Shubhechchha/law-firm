@@ -7,17 +7,19 @@ function ClientCaseRegistration(props) {
   const [phoneNum, setPhoneNum] = useState();
   const [caseDescription, setCaseDescription] = useState();
 
-  const CASE_REGISTRATION_URL = 'https://lawyers-bf0c.restdb.io/rest/cases';
+  const CASE_REGISTRATION_URL = "https://lawyers-bf0c.restdb.io/rest/cases";
+  const LAWYER_REGISTRATION_URL = "https://lawyers-bf0c.restdb.io/rest/lawyers";
+  const LAWYER_UPDATE_URL = LAWYER_REGISTRATION_URL + "/" + props.lawyerID;
 
   const handleClientSubmit = (event) => {
     event.preventDefault();
     fetch(CASE_REGISTRATION_URL, {
-      mode: 'cors',
+      mode: "cors",
       method: "POST",
       headers: {
         "content-type": "application/json",
         "x-apikey": "62c9f84a03ab3e0c7b0cf1bd",
-        "cache-control": "no-cache"
+        "cache-control": "no-cache",
       },
       body: JSON.stringify({
         fullName: fullName,
@@ -29,11 +31,29 @@ function ClientCaseRegistration(props) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+        console.log("Success. updating lawyer's total case taken:", data);
+        fetch(LAWYER_UPDATE_URL, {
+          mode: "cors",
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+            "x-apikey": "62c9f84a03ab3e0c7b0cf1bd",
+            "cache-control": "no-cache",
+          },
+          body: JSON.stringify({
+            totalCasesTaken: props.totalCasesTaken + 1,
+          }),
+        }).then((res) => res.json())
+          .then(data => {
+            props.handleClose();
+            props.setLoading(true);
+            props.getLatestLawyerData();
+          })
+        }).catch((error) => {
+          console.error("Error:", error);
+        });
+      
+      
   };
 
   return (

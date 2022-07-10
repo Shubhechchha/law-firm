@@ -6,7 +6,7 @@ const LawyerRow = (props) => {
 return (
     <Row xs={1} md={3} className="g-4">
         {props.lawyerData.map ( (lawyer) => (
-            <Col key={lawyer._id}>
+            <Col key={lawyer._id} style={{ overflow: "hidden" }}>
                 <LawyerItem
                     key={lawyer.id} 
                     id={lawyer._id} 

@@ -7,7 +7,6 @@ const AddNewLawyerForm = (props) => {
   const[fullName, setFullName] = useState();
   const[hourlyRate, setHourlyRate] = useState();
   const[speciality, setSpeciality] = useState();
-  const[totalCaseCapacity, setTotalCaseCapacity] = useState();
 
 
   // const LAWYER_CREATE_URL_MOCKAPI = 'https://62c752702b03e73a58e37b4a.mockapi.io/api/v1/lawyers';
@@ -28,6 +27,7 @@ const AddNewLawyerForm = (props) => {
         fullName: fullName,
         hourlyRate: hourlyRate,
         speciality: speciality,
+        totalCasesTaken: 0,
       })
     }).then(response => response.json())
     .then(data => {
