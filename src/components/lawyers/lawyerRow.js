@@ -13,8 +13,7 @@ return (
                     fullName ={lawyer.fullName}
                     hourlyRate ={lawyer.houryRate}
                     speciality = {lawyer.speciality}
-                    totalCapacity = {lawyer.totalCapacity}
-                    totalCaseTaken = {lawyer.totalCaseTaken}
+                    totalCasesTaken = {lawyer.totalCasesTaken}
                     image={lawyer.avatar} 
                     />
             </Col> 

@@ -18,10 +18,9 @@ const LawyerItem = (props) => {
                 <Card.Img variant="top" src={props.image} alt={props.fullName}/>
                 <Card.Body>
                     <Card.Title>{props.fullName}</Card.Title>
-                    <Card.Text>{props.hourlyRate}</Card.Text>
-                    <Card.Text>{props.speciality}</Card.Text>
-                    <Card.Text>{props.totalCaseCapacity}</Card.Text>
-                    <Card.Text>{props.totalCaseTaken}</Card.Text>
+                    <Card.Text>Hourly rate: {props.hourlyRate}</Card.Text>
+                    <Card.Text>Specialization: {props.speciality}</Card.Text>
+                    <Card.Text>Cases taken: {props.totalCasesTaken}</Card.Text>
                     <Button
                         variant="primary"
                         className ={classes.custombtn}

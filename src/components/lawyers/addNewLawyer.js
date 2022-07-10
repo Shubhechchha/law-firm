@@ -28,7 +28,6 @@ const AddNewLawyerForm = (props) => {
         fullName: fullName,
         hourlyRate: hourlyRate,
         speciality: speciality,
-        totalCaseCapacity: totalCaseCapacity,  
       })
     }).then(response => response.json())
     .then(data => {
@@ -69,14 +68,6 @@ const AddNewLawyerForm = (props) => {
             onChange={(e) => setSpeciality(e.target.value)}  
             type="string"
             placeholder="Enter your specialization" required
-          />
-        </Form.Group>
-        <Form.Group style={{ marginBottom: "20px" }}>
-          <Form.Label> Enter your total case capacity </Form.Label>
-          <Form.Control
-            onChange={(e) => setTotalCaseCapacity(e.target.value)}  
-            type="number"
-            placeholder="Enter your total case capacity" required
           />
         </Form.Group>
         <Button type="submit">Save changes</Button>
