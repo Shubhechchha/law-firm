@@ -9,7 +9,7 @@ function LawyerModal(props) {
                     <Modal.Title>Add new lawyer</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <AddNewLawyerForm handleClose={props.handleClose} getLatestLawyerData={props.getLatestLawyerData} /> 
+                        <AddNewLawyerForm handleClose={props.handleClose} getLatestLawyerData={props.getLatestLawyerData} setLoading={props.setLoading}/> 
                     </Modal.Body>
             </Modal>
         </>

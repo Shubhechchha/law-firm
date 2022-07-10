@@ -43,7 +43,7 @@ function LawyersList(props) {
             <>
                 <LawyerRow lawyerData={lawyerData} />
                 <Button className={classes.lawyerForm} onClick={handleShow}>Add new lawyer</Button>
-                <LawyerModal show={show} handleClose={handleClose} getLatestLawyerData={getData} />
+                <LawyerModal show={show} handleClose={handleClose} getLatestLawyerData={getData} setLoading={setLoading}/>
             </>
         )
     }

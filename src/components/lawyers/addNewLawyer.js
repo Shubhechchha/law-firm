@@ -34,6 +34,7 @@ const AddNewLawyerForm = (props) => {
     .then(data => {
       console.log('Success:', data);
       props.handleClose();
+      props.setLoading(true);
       props.getLatestLawyerData();
     })
     .catch((error) => {
